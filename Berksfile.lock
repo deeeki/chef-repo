@@ -1,0 +1,33 @@
+DEPENDENCIES
+  nginx
+  rbenv
+    git: git://github.com/fnichol/chef-rbenv.git
+    branch: master
+  ruby_build
+
+GRAPH
+  apt (2.3.8)
+  bluepill (2.3.1)
+    rsyslog (>= 0.0.0)
+  build-essential (2.0.0)
+  java (1.21.2)
+  nginx (2.4.4)
+    apt (~> 2.2)
+    bluepill (~> 2.3)
+    build-essential (~> 2.0)
+    ohai (~> 1.1)
+    runit (~> 1.2)
+    yum-epel (~> 0.3)
+  ohai (1.1.12)
+  rbenv (0.7.3)
+    java (> 1.4.0)
+    ruby_build (>= 0.0.0)
+  rsyslog (1.12.2)
+  ruby_build (0.8.0)
+  runit (1.5.10)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+  yum (3.1.4)
+  yum-epel (0.3.4)
+    yum (~> 3.0)
