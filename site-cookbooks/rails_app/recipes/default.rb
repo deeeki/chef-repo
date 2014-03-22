@@ -32,3 +32,5 @@ template "#{node.nginx.dir}/sites-available/#{node.app.name}" do
 end
 
 nginx_site node.app.name
+
+mysql_create_database node.mysql.database_name
