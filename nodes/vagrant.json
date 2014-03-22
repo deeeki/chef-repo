@@ -1,1 +1,11 @@
-{"run_list":[]}
+{
+  "run_list": [
+    "recipe[vagrant]",
+    "role[all_in_one]"
+  ],
+  "app": {
+    "name": "app",
+    "host": "192.168.33.10",
+    "deploy_users": ["vagrant"]
+  }
+}
