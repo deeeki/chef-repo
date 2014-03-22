@@ -1,0 +1,38 @@
+{
+  "name": "all_in_one",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "app": {
+      "name": "app",
+      "host": "192.168.33.10",
+      "deploy_users": []
+    },
+    "mysql": {
+      "database_name": "app_staging"
+    },
+    "nginx": {
+      "version": "1.4.7",
+      "repo_source": "nginx"
+    },
+    "rbenv": {
+      "upgrade": true,
+      "global": "2.1.1",
+      "rubies": [
+        "2.1.1"
+      ],
+      "gems": {
+        "2.1.1": [
+          {"name": "bundler"}
+        ]
+      }
+    }
+  },
+  "run_list": [
+    "nginx",
+    "ruby_build",
+    "rbenv::system",
+    "mysql",
+    "rails_app"
+  ]
+}
