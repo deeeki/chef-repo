@@ -26,3 +26,9 @@ directory "/var/www/#{node.app.name}" do
   mode '2775'
   action :create
 end
+
+template "#{node.nginx.dir}/sites-available/#{node.app.name}" do
+  source 'nginx.conf.erb'
+end
+
+nginx_site node.app.name
