@@ -3,6 +3,9 @@
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": {
+    "ssh": {
+      "port": "22"
+    },
     "app": {
       "name": "app",
       "host": "192.168.33.10",
@@ -31,6 +34,7 @@
   },
   "run_list": [
     "nginx",
+    "simple_iptables",
     "ruby_build",
     "rbenv::system",
     "mysql",

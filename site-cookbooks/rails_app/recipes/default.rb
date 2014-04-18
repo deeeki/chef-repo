@@ -27,6 +27,30 @@ directory "/var/www/#{node.app.name}" do
   action :create
 end
 
+simple_iptables_policy 'INPUT' do
+  policy 'DROP'
+end
+simple_iptables_rule 'loopback' do
+  chain 'system'
+  rule '--in-interface lo'
+  jump 'ACCEPT'
+end
+simple_iptables_rule 'established' do
+  chain 'system'
+  rule '-m conntrack --ctstate ESTABLISHED,RELATED'
+  jump 'ACCEPT'
+end
+simple_iptables_rule 'ssh' do
+  chain 'system'
+  rule "--proto tcp --dport #{node.ssh.port}"
+  jump 'ACCEPT'
+end
+simple_iptables_rule 'http' do
+  rule [ '--proto tcp --dport 80',
+         '--proto tcp --dport 443' ]
+  jump 'ACCEPT'
+end
+
 template "#{node.nginx.dir}/sites-available/#{node.app.name}" do
   source 'nginx.conf.erb'
 end
