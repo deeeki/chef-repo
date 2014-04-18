@@ -33,4 +33,5 @@ end
 
 nginx_site node.app.name
 
+mysql_secure_installation
 mysql_create_database node.mysql.database_name
