@@ -9,7 +9,8 @@
       "deploy_users": []
     },
     "mysql": {
-      "database_name": "app_staging"
+      "database_name": "app_staging",
+      "server_root_password": ""
     },
     "nginx": {
       "version": "1.4.7",
