@@ -15,6 +15,9 @@
       "database_name": "app_staging",
       "server_root_password": ""
     },
+    "php": {
+      "timezone": "Asia/Tokyo"
+    },
     "nginx": {
       "version": "1.4.7",
       "repo_source": "nginx"
@@ -38,6 +41,7 @@
     "ruby_build",
     "rbenv::system",
     "mysql",
-    "rails_app"
+    "rails_app",
+    "php"
   ]
 }
